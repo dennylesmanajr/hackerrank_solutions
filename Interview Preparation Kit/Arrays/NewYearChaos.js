@@ -28,6 +28,19 @@ function minimumBribes(q) {
     let bribes = 0;
     let chaotic = false;
     for (let i = 0; i < q.length; i++) {
+
+        /**
+         * COUNT ITEM STEPS FROM ORIGINAL POSITION
+         * ===========================================
+         * compare item with original position
+         * original position : 1 2 3 4 5
+         * current position  : 2 1 5 3 4
+         * ex , q[0] = 2, 
+         * 2 - (0-1) > 2
+         * 1 > 2
+         * so number 2, just must move +1 from current position to back its original position
+         * if move more than 2 steps, then chaotic
+         */
         if(q[i] -(i+1)>2) {
             chaotic = true;
             break;
